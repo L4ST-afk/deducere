@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.coverage*
+node_modules/
+dist/
+
+# 评审记录与过程文档不进公开仓库
+internal-reviews/
+docs/REVIEW-*
