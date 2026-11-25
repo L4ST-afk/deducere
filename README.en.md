@@ -111,6 +111,16 @@ The cover draws on the Yueqing antiphonal folk song *Dui Niao*: four hammered-go
 | Red-billed blue magpie (长尾巴丁) | Sapphire | Wipe traces clean, no relapse | Clean: repair where the bad value is born, remove every probe |
 
 Loose between the plaques lie trade beads — agate/chalcedony stones and millefiori glass, never strung — standing for cross-system call chains and data clues; follow the beads along the thread to the true cause. The full visual canon is kept as an internal volume and is not shipped with the public build.
+
+Nothing here is placed at random. Three pairs of confrontations hold the cover up, and each of them is about the word *dui* — facing, answering:
+
+| Pairing | Two ends | Why they sit together |
+|---|---|---|
+| In time | Pre-Columbian hammered-gold plaques of the Peruvian Moche, roughly 1st–8th century CE ｜ twentieth-century African trade beads | One is remote craft at its finest, the other a recent circulating object: old and late on the same felt |
+| In space | South America (Peru) ↔ East Asia (Yueqing): facing across two halves of the globe; South America ↔ West Africa: coastlines that interlock after the Gondwana split | Gold from South America, the folk motif from East Asia, beads arriving in Africa through European trade — three lands forming a tripod on the page |
+| In meaning | *Dui Niao* compares signs and answers with a bird's name ↔ this skill compares symptoms with predictions and locates the root object | *Dui* is both singers answering each other and probes answered one by one against hypotheses |
+
+Trade beads were made in Europe (Venice, Bohemia, the Netherlands) and carried into Africa by ocean trade: a craft specimen, and also evidence of the Atlantic triangular trade. Here they serve only as the image of "corroboration that never crowds the subject" — no credit is added to that history.
 </details>
 
 ## License
