@@ -9,7 +9,7 @@
 - 判据 29 条（J1–J29），三行式（问法／判违规形态／症状句），单一载体在 `references/判据表.md`。
 - 执行脚本：`verify_red_green.py`（红绿硬闸）、`check_clean.py`（净痕检查）、`human-loop.template.sh`（人工介入回路）。
 - 24 个单元测试 + 离线自检（`scripts/selftest.py`），零第三方依赖。
-- 封面题图取意乐清民歌《对鸟》四问四答，视觉定版见 `references/visual-language.md`。
+- 封面题图取意乐清民歌《对鸟》四问四答，视觉定版见内部视觉卷（不随公开件发布）。
 
 ### 外发脱敏
 

@@ -4,7 +4,7 @@
 
 <img src="docs/cover.jpg" alt="对鸟 Deducere — 墨绿毡布上四枚分离錾金鸟铭牌，四鸟相向，眼宝为祖母绿、白钻、红宝石、蓝宝石，间杂 20 世纪贸易彩珠" width="720">
 
-> 视觉造型、四鸟四宝对位、錾金与彩珠源流及三层对仗（时间／空间／含义）的定版规则见 [references/visual-language.md](references/visual-language.md)。
+> 视觉造型、四鸟四宝对位、錾金与彩珠源流及三层对仗（时间／空间／含义）的定版规则属内部卷，不随公开件发布；下文各节已把对外必需的造型口径写足。
 
 > 乐清山歌，四鸟对答。
 > 问飞过青又青，答羽色何处生；
@@ -14,7 +14,7 @@
 
 **问题排查与根因定位 Skill**：只凭可复现证据链定位故障根源，用先复现、排序假设、单一变量最小插桩与隔离试改，把「瞎猜乱改」与「真正修好」彻底拆开。
 
-中文名取自温州乐清国家级非遗民歌**《对鸟》**（一问一答、以唱对答、不合律则不续）；外文名 *Deducere*（回溯引出、推演至根因）。定名与读音正字见 [references/naming.md](references/naming.md)。
+中文名取自温州乐清国家级非遗民歌**《对鸟》**（一问一答、以唱对答、不合律则不续）；外文名 *Deducere*（回溯引出、推演至根因）。定名考据（读音钉死、落选名与诚实缺口）属内部记录，不随公开件发布。
 
 ---
 
@@ -78,13 +78,11 @@ python3 scripts/check_clean.py --repo . --allow-file tests/test_deducere.py
 ├── SKILL.md                  # 四问三账总纲、硬闸与横切闸（判据句不在本页）
 ├── references/
 │   ├── 判据表.md              # 29 条判据（问法／判违规／症状句／可选深读）
-│   ├── naming.md             # 定名、读音钉死、落选名与诚实缺口
 │   ├── feedback-loops.md     # 十种接缝、回路收紧、非确定 bug 与降级
 │   ├── hypothesis-methods.md # 兄弟件对照、边界二分、合议流程与降级
 │   ├── anti-patterns.md      # 源头修反模式、个例/普遍二分、防再犯三选一
 │   ├── reporting-and-handoff.md # 汇报模板、收尾清理清单、逐项验证与交接对接
 │   ├── provenance.md         # 独立实现声明、构造来源、血缘切断说明
-│   ├── visual-language.md    # 封面/题图视觉定版：四鸟四宝、錾金与彩珠源流、三层对仗
 │   └── pending-thresholds.md # 待校准阈值（P 池，90 天到期即删）
 ├── scripts/
 │   ├── verify_red_green.py   # 先红后绿证伪硬闸
@@ -119,7 +117,7 @@ python3 scripts/check_clean.py --repo . --allow-file tests/test_deducere.py
 | 雉鸡（环颈雉） | 红宝石 | 先赤后碧，验乃成 | 验真问：同一条命令先复现赤、修复后转碧 |
 | 长尾巴丁（红嘴蓝鹊） | 蓝宝石 | 迹净揩除，患不萌 | 净痕问：修在坏源初生处，拔针不留余痕 |
 
-铭牌间隙散落的贸易彩珠（玛瑙／玉髓石珠与千花玻璃珠，单颗散放、不穿成串），隐喻跨系统流转的调用链与数据线索——顺珠寻线，方得真因。完整视觉定版见 [references/visual-language.md](references/visual-language.md)。
+铭牌间隙散落的贸易彩珠（玛瑙／玉髓石珠与千花玻璃珠，单颗散放、不穿成串），隐喻跨系统流转的调用链与数据线索——顺珠寻线，方得真因。视觉定版（配色、构图与禁用项）属内部卷，不随公开件发布。
 </details>
 
 ## 许可与署名

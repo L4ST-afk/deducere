@@ -9,7 +9,7 @@
 - 29 criteria (J1–J29) in three-line form (question / violation / symptom), with a single source of truth in `references/判据表.md`.
 - Executable scripts: `verify_red_green.py` (red/green hard gate), `check_clean.py` (clean-trace check), `human-loop.template.sh` (human-in-the-loop fallback).
 - 24 unit tests plus an offline self-check (`scripts/selftest.py`), zero third-party dependencies.
-- Cover art draws on the four-question folk song "Dui Niao"; see `references/visual-language.md`.
+- Cover art draws on the four-question folk song "Dui Niao"; the visual canon is an internal volume, not shipped with the public build.
 
 ### Release redaction
 

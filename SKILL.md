@@ -37,7 +37,7 @@ metadata:
 | **验真** | 雉鸡（环颈雉）· 红宝石 | 同一条命令，先红后绿了吗？中间改断言凑绿没有？ | 是（过程） | 写入（仅修复） |
 | **净痕** | 长尾巴丁（红嘴蓝鹊）· 蓝宝石 | 探针拔净了吗？修在源头还是挡症状？防再犯落在哪一档？ | 部分（过程当下、结果隔期） | 写入（仅清理） |
 
-四问之间散落的贸易彩珠（玛瑙／玉髓石珠与千花玻璃珠，单颗散放、不穿成串），喻跨系统流转的调用链与数据线索——顺珠寻线，方得真因。完整视觉定版见 [references/visual-language.md](references/visual-language.md)。
+四问之间散落的贸易彩珠（玛瑙／玉髓石珠与千花玻璃珠，单颗散放、不穿成串），喻跨系统流转的调用链与数据线索——顺珠寻线，方得真因。视觉定版（配色、构图与禁用项）属内部卷，不随公开件发布。
 
 ### 三账（过程判据／结果判据之别）
 
@@ -176,8 +176,6 @@ python3 -m unittest discover -s tests -q   # 双硬闸业务回归，期望 OK�
 - [references/reporting-and-handoff.md](references/reporting-and-handoff.md)：汇报八段、收尾清理清单、回滚点、逐项验证。
 - [references/provenance.md](references/provenance.md)：独立实现声明、血缘切断说明。
 - [references/pending-thresholds.md](references/pending-thresholds.md)：已转正阈值与待校准项（P 池形态，未准入项⛔ 进正文硬判据）。
-- [references/naming.md](references/naming.md)：定名与拉丁名考据（只记名字由来，不定义功能）。
-- [references/visual-language.md](references/visual-language.md)：对外视觉造型、配色、构图与禁用项。
 - [scripts/verify_red_green.py](scripts/verify_red_green.py)：红绿双态证伪硬闸。
 - [scripts/check_clean.py](scripts/check_clean.py)：收尾探针残留硬闸。
 - [scripts/human-loop.template.sh](scripts/human-loop.template.sh)：必须人介入时的结构化 HITL 回路模板（本件自出）。

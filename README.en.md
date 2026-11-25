@@ -4,7 +4,7 @@
 
 <img src="docs/cover.jpg" alt="Deducere — four separated hammered-gold bird plaques on deep forest-green felt, facing antiphonally, with emerald, white diamond, ruby, and sapphire eye stones and 20th-century trade beads" width="720">
 
-> Visual canon (bird–stone mapping, goldwork and bead origins, and the three antitheses of time / space / meaning): [references/visual-language.md](references/visual-language.md) (Chinese canonical).
+> Visual canon (bird–stone mapping, goldwork and bead origins, and the three antitheses of time / space / meaning) is kept as an internal volume and is not shipped with the public build.
 
 > *Mountain song of Yueqing, four birds singing in antiphonal reply.*
 > *One asks which bird flies past in verdant green; the other answers where that plumage grows.*
@@ -14,7 +14,7 @@
 
 **Deducere** is a disciplined debugging and root-cause isolation skill for AI coding agents. It enforces reproducible red-green verification, ranked falsifiable hypotheses, single-variable instrumentation, and post-fix workspace hygiene — separating *educated guessing* from *proven root-cause repair*.
 
-The Chinese name **对鸟** follows the national intangible cultural heritage antiphonal folk song from Yueqing, Wenzhou, where every question demands an exact, rhythm-locked answer before the song may proceed; the Latin name **Deducere** means to trace down and deduce. Naming and canonical pronunciation are fixed in [references/naming.md](references/naming.md).
+The Chinese name **对鸟** follows the national intangible cultural heritage antiphonal folk song from Yueqing, Wenzhou, where every question demands an exact, rhythm-locked answer before the song may proceed; the Latin name **Deducere** means to trace down and deduce. Naming and canonical pronunciation are fixed in an internal record that is not shipped with the public build.
 
 ---
 
@@ -75,13 +75,11 @@ python3 scripts/check_clean.py --repo . --allow-file tests/test_deducere.py
 ├── SKILL.md                    # Six-phase rule book, hypothesis ranking, stop-loss thresholds
 ├── references/
 │   ├── 判据表.md               # 29 criteria (question / violation / symptom; Chinese canonical)
-│   ├── naming.md               # Naming, canonical pronunciation, rejected candidates
 │   ├── feedback-loops.md       # Feedback-loop seams, tightening, nondeterministic bugs
 │   ├── hypothesis-methods.md   # Sibling-skill comparison, boundary bisection, panel review
 │   ├── anti-patterns.md        # Root-fix anti-patterns, case-vs-general, prevention options
 │   ├── reporting-and-handoff.md # Report template, clean-sweep checklist, handoff facts
 │   ├── provenance.md           # Independent-implementation statement, construction sources
-│   ├── visual-language.md      # Visual canon: bird–stone mapping, goldwork/bead origins, three antitheses
 │   └── pending-thresholds.md   # Pending calibration numbers (P pool)
 ├── scripts/
 │   ├── verify_red_green.py     # Red-before / green-after falsification gate
@@ -112,7 +110,7 @@ The cover draws on the Yueqing antiphonal folk song *Dui Niao*: four hammered-go
 | Ring-necked pheasant (雉鸡) | Ruby | Red before green, check proves out | Verify: same command red first, green only after the fix |
 | Red-billed blue magpie (长尾巴丁) | Sapphire | Wipe traces clean, no relapse | Clean: repair where the bad value is born, remove every probe |
 
-Loose between the plaques lie trade beads — agate/chalcedony stones and millefiori glass, never strung — standing for cross-system call chains and data clues; follow the beads along the thread to the true cause. Full visual canon: [references/visual-language.md](references/visual-language.md) (Chinese canonical).
+Loose between the plaques lie trade beads — agate/chalcedony stones and millefiori glass, never strung — standing for cross-system call chains and data clues; follow the beads along the thread to the true cause. The full visual canon is kept as an internal volume and is not shipped with the public build.
 </details>
 
 ## License
