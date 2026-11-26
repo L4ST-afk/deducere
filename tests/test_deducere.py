@@ -223,6 +223,27 @@ class TestRedGreenGate(unittest.TestCase):
         res = run_rg("bogus", PY_EXIT0)
         self.assertEqual(res.returncode, 2)
 
+    def test_25_fixture_errors_are_not_symptom_red(self):
+        for error in ("ImportError", "NameError", "AttributeError", "SyntaxError"):
+            with self.subTest(error=error):
+                cmd = f"echo '{error}: broken fixture' >&2; exit 1"
+                res = run_rg("red", cmd, match="ExpectedSymptom")
+                self.assertEqual(res.returncode, 1)
+                self.assertIn("回路错误", res.stderr)
+
+    def test_26_fixture_error_without_match_is_rejected(self):
+        res = run_rg("red", "echo 'AttributeError: wrong symbol' >&2; exit 1")
+        self.assertEqual(res.returncode, 1)
+        self.assertIn("回路错误", res.stderr)
+
+    def test_27_fixture_error_as_explicit_target_passes(self):
+        res = run_rg(
+            "red", "echo 'AttributeError: intended symptom' >&2; exit 1",
+            match="AttributeError",
+        )
+        self.assertEqual(res.returncode, 0, msg=res.stderr)
+        self.assertIn("PASS-RED", res.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

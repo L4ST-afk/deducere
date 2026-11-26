@@ -2,6 +2,13 @@
 
 [中文](CHANGELOG.md) · English
 
+## 1.1.0 (2026-11-26) · Compound-symptom splitting and stronger feedback loops
+
+- Compound requests are split first: pure styling, new features, generic performance work and defect diagnosis take separate paths; each symptom gets its own red/green chain and rollback point.
+- The red/green gate now checks fixture health, treating import, name, attribute and syntax errors as loop failures by default. Service retests check instance freshness, while UI evidence distinguishes truth, structure and presentation.
+- The criterion table now carries 30 entries (J1–J30), with 27 business regressions. Performance measurement and truth-slice ownership remain in the candidate pool rather than claiming promotion.
+- The naming, visual-language and performance-measurement volumes are public; the local-use declaration and field notes are not shipped.
+
 ## 1.0.1 (2026-11-25) · Cover easter egg gains the three pairings
 
 - The README easter-egg section grows from "four birds, four stones, trade beads" to three pairings: in time (Peruvian Moche hammered-gold plaques ↔ twentieth-century African trade beads), in space (Peru ↔ Yueqing across the globe; South America ↔ West Africa with interlocking coastlines), in meaning (*Dui Niao* answers signs with a bird's name ↔ this skill answers symptoms with a root cause).

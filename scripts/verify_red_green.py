@@ -11,7 +11,8 @@
 
 - `--expect red`：命令必须返回非 0；给了 `--match` 正则时，stdout 或 stderr
   必须命中该症状正则，否则判「症状不匹配」；rc=0 判「假复现」。未给 `--match`
-  时只确认非零退出，不核症状。
+  时只确认非零退出，不核症状。`ImportError`／`NameError`／`AttributeError`／`SyntaxError`
+  默认判「回路错误」而非症状红；错误类本身就是目标症状时，用 `--match` 精确命中该类可放行。
 - `--expect green`：同一条命令必须返回 0；非 0 判「回归未通过」。
   ⛔ `--match` 仅限 red；green 携带 `--match` 按参数错误拒绝（rc=2）。
 
@@ -42,6 +43,7 @@ import subprocess
 import sys
 
 COMMAND_TIMEOUT = 300
+FIXTURE_ERROR_RE = re.compile(r"(?<![A-Za-z])(ImportError|NameError|AttributeError|SyntaxError)(?=:)")
 
 
 def _usage(msg: str) -> int:
@@ -90,8 +92,16 @@ def main() -> int:
             print("[FAIL] 假复现拦截：--expect red 状态下命令竟返回 0（未复现故障）。",
                   file=sys.stderr)
             return 1
+        hit = None
         if symptom_re:
             hit = symptom_re.search(stdout) or symptom_re.search(stderr)
+        fixture = FIXTURE_ERROR_RE.search((stdout or "") + "\n" + (stderr or ""))
+        if fixture and (not hit or fixture.group(1) not in hit.group(0)):
+            print(f"[FAIL] 回路错误拦截：输出出现 {fixture.group(1)}，先修测试夹具／符号／导入，"
+                  "不得把它当用户症状的红。若该错误类本就是目标症状，请用 --match 精确命中它。",
+                  file=sys.stderr)
+            return 1
+        if symptom_re:
             if not hit:
                 print(f"[FAIL] 症状不匹配：命令虽失败（rc={proc.returncode}），"
                       f"但输出未命中正则 /{args.match}/。", file=sys.stderr)

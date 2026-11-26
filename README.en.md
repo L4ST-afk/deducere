@@ -1,10 +1,12 @@
-[中文](README.md) · English
-
 # Deducere (对鸟) · Evidence-Driven Root-Cause Debugging
 
-<img src="docs/cover.jpg" alt="Deducere — four separated hammered-gold bird plaques on deep forest-green felt, facing antiphonally, with emerald, white diamond, ruby, and sapphire eye stones and 20th-century trade beads" width="720">
+[中文正本 (canonical)](README.md) · English
 
-> Visual canon (bird–stone mapping, goldwork and bead origins, and the three antitheses of time / space / meaning) is kept as an internal volume and is not shipped with the public build.
+<!-- cover slot: once `docs/cover.jpg` lands, insert
+     <img src="docs/cover.jpg" alt="Deducere — four separated hammered-gold bird plaques on deep forest-green felt, facing antiphonally, with emerald, white diamond, ruby, and sapphire eye stones and 20th-century trade beads" width="720">
+     ⛔ No placeholder link while the image is missing. -->
+
+> Visual canon (bird–stone mapping, goldwork and bead origins, and the three antitheses of time / space / meaning): [references/visual-language.md](references/visual-language.md) (Chinese canonical).
 
 > *Mountain song of Yueqing, four birds singing in antiphonal reply.*
 > *One asks which bird flies past in verdant green; the other answers where that plumage grows.*
@@ -14,7 +16,7 @@
 
 **Deducere** is a disciplined debugging and root-cause isolation skill for AI coding agents. It enforces reproducible red-green verification, ranked falsifiable hypotheses, single-variable instrumentation, and post-fix workspace hygiene — separating *educated guessing* from *proven root-cause repair*.
 
-The Chinese name **对鸟** follows the national intangible cultural heritage antiphonal folk song from Yueqing, Wenzhou, where every question demands an exact, rhythm-locked answer before the song may proceed; the Latin name **Deducere** means to trace down and deduce. Naming and canonical pronunciation are fixed in an internal record that is not shipped with the public build.
+The Chinese name **对鸟** follows the national intangible cultural heritage antiphonal folk song from Yueqing, Wenzhou, where every question demands an exact, rhythm-locked answer before the song may proceed; the Latin name **Deducere** means to trace down and deduce. Naming and canonical pronunciation are fixed in [references/naming.md](references/naming.md).
 
 ---
 
@@ -31,20 +33,7 @@ Debugging is not a six-step pipeline. It is four questions you can re-enter, plu
 
 **Three ledgers**: process (judgeable now, machine + this session), result (judgeable only later, by a person or a later re-run), evidence (graded L0/L1/L2 with a rereadable path). All four questions green means process compliance only; with no later-stage data the result ledger is "insufficient evidence" — never write "resolved".
 
-> **Single carrier of criteria**: all 29 criteria (question / violation / symptom), grouped by the four questions as J1–J29, live in [references/判据表.md](references/判据表.md); SKILL.md and expansion volumes cite IDs only.
-
-## Installation
-
-1. Download or clone this repository: `git clone https://github.com/L4ST-afk/deducere.git 对鸟Deducere` — the **repository is `deducere`, while the installed directory name must stay `对鸟Deducere`**.
-2. Move the entire `对鸟Deducere/` directory into your host's (Claude Code / Codex / Perch, etc.) skills directory, keeping the directory name.
-3. Self-check (offline, zero dependencies, no credentials needed):
-
-```bash
-python3 scripts/selftest.py                      # expect PASS, exit 0
-python3 -m unittest discover -s tests -q         # expect OK, exit 0
-```
-
-Both passing means the install is complete; any non-zero exit means it is not. Requires Python 3.10+, standard library only.
+> **Single carrier of criteria**: all 30 criteria (question / violation / symptom), grouped by the four questions as J1–J30, live in [references/判据表.md](references/判据表.md); SKILL.md and expansion volumes cite IDs only.
 
 ## Self-Check & Daily Commands
 
@@ -65,7 +54,7 @@ python3 scripts/verify_red_green.py --expect red --cmd "<repro-cmd>" --match "<e
 python3 scripts/verify_red_green.py --expect green --cmd "<repro-cmd>"
 
 # 3. Audit working tree before delivery (exits 1 if any [DEBUG-*] probe remains)
-python3 scripts/check_clean.py --repo . --allow-file tests/test_deducere.py
+python3 scripts/check_clean.py --repo .
 ```
 
 ## Layout
@@ -74,20 +63,22 @@ python3 scripts/check_clean.py --repo . --allow-file tests/test_deducere.py
 对鸟Deducere/
 ├── SKILL.md                    # Six-phase rule book, hypothesis ranking, stop-loss thresholds
 ├── references/
-│   ├── 判据表.md               # 29 criteria (question / violation / symptom; Chinese canonical)
+│   ├── 判据表.md               # 30 criteria (question / violation / symptom; Chinese canonical)
+│   ├── naming.md               # Naming, canonical pronunciation, rejected candidates
 │   ├── feedback-loops.md       # Feedback-loop seams, tightening, nondeterministic bugs
 │   ├── hypothesis-methods.md   # Sibling-skill comparison, boundary bisection, panel review
 │   ├── anti-patterns.md        # Root-fix anti-patterns, case-vs-general, prevention options
 │   ├── reporting-and-handoff.md # Report template, clean-sweep checklist, handoff facts
 │   ├── provenance.md           # Independent-implementation statement, construction sources
+│   ├── visual-language.md      # Visual canon: bird–stone mapping, goldwork/bead origins, three antitheses
 │   └── pending-thresholds.md   # Pending calibration numbers (P pool)
 ├── scripts/
 │   ├── verify_red_green.py     # Red-before / green-after falsification gate
 │   ├── check_clean.py          # Post-fix hygiene scanner for [DEBUG-*] leftovers
 │   ├── selftest.py             # Syntax-level offline smoke check
 │   └── human-loop.template.sh  # Structured human-in-the-loop template (authored in this skill)
-├── tests/
-│   └── test_deducere.py        # 24 business regression cases for both gates
+└── tests/
+│   └── test_deducere.py        # 27 business regression cases for both gates
 ```
 
 ## Cover Motifs (Design Easter Eggs)
@@ -110,19 +101,11 @@ The cover draws on the Yueqing antiphonal folk song *Dui Niao*: four hammered-go
 | Ring-necked pheasant (雉鸡) | Ruby | Red before green, check proves out | Verify: same command red first, green only after the fix |
 | Red-billed blue magpie (长尾巴丁) | Sapphire | Wipe traces clean, no relapse | Clean: repair where the bad value is born, remove every probe |
 
-Loose between the plaques lie trade beads — agate/chalcedony stones and millefiori glass, never strung — standing for cross-system call chains and data clues; follow the beads along the thread to the true cause. The full visual canon is kept as an internal volume and is not shipped with the public build.
-
-Nothing here is placed at random. Three pairs of confrontations hold the cover up, and each of them is about the word *dui* — facing, answering:
-
-| Pairing | Two ends | Why they sit together |
-|---|---|---|
-| In time | Pre-Columbian hammered-gold plaques of the Peruvian Moche, roughly 1st–8th century CE ｜ twentieth-century African trade beads | One is remote craft at its finest, the other a recent circulating object: old and late on the same felt |
-| In space | South America (Peru) ↔ East Asia (Yueqing): facing across two halves of the globe; South America ↔ West Africa: coastlines that interlock after the Gondwana split | Gold from South America, the folk motif from East Asia, beads arriving in Africa through European trade — three lands forming a tripod on the page |
-| In meaning | *Dui Niao* compares signs and answers with a bird's name ↔ this skill compares symptoms with predictions and locates the root object | *Dui* is both singers answering each other and probes answered one by one against hypotheses |
-
-Trade beads were made in Europe (Venice, Bohemia, the Netherlands) and carried into Africa by ocean trade: a craft specimen, and also evidence of the Atlantic triangular trade. Here they serve only as the image of "corroboration that never crowds the subject" — no credit is added to that history.
+Loose between the plaques lie trade beads — agate/chalcedony stones and millefiori glass, never strung — standing for cross-system call chains and data clues; follow the beads along the thread to the true cause. Full visual canon: [references/visual-language.md](references/visual-language.md) (Chinese canonical).
 </details>
 
-## License
+## License & Internal-Use Note
 
-This skill is an independent implementation. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+This skill is an independent implementation — not derived from, translated from, or a rewrite of any upstream work. Its construction, criteria, scripts, narrative and body text are authored in this library, with no MIT or other upstream license obligations. See [provenance.md](references/provenance.md).
+
+The public distribution does not include the local-use declaration or field notes.
