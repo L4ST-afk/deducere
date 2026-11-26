@@ -2,6 +2,14 @@
 
 [中文](CHANGELOG.md) · English
 
+## Unreleased (2026-11-27) · Branch protection: add quality-gate aggregate
+
+- **Problem**: the repo had no branch protection at all; anyone, including the local pipeline, could push straight to main.
+- **Change**: a `quality-gate` aggregate job at the end of `selftest.yml` (`needs: [checks, docs]`, `if: always()`): both the offline gate and the docs gate must succeed; failure, cancellation, or skip turns it red.
+- **Why not pin the matrix jobs**: names like `离线闸 · py3.11` change with the matrix, so a required check pinned to them silently expires; the aggregate name is stable.
+- **Alongside**: main now requires `quality-gate`, `strict: true`, `enforce_admins: true` — everything goes through PRs from here.
+- **Untouched**: criteria (J1–J30), scripts, tests, docs.
+
 ## 1.1.0 (2026-11-26) · Compound-symptom splitting and stronger feedback loops
 
 - Compound requests are split first: pure styling, new features, generic performance work and defect diagnosis take separate paths; each symptom gets its own red/green chain and rollback point.

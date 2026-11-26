@@ -95,3 +95,18 @@ jobs:
               print(' ✗', x)
           sys.exit(1 if bad else 0)
           PY
+
+  # 汇总门：分支保护只认这一条必过检查。任何一条 job 红、取消或跳过（不可接受）都判红。
+  # ⛔ 直接把矩阵 job 设成必过检查：矩阵成员名随 os/py 版本变化，改名即静默失效。
+  quality-gate:
+    name: quality-gate
+    needs: [checks, docs]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: 汇总
+        shell: bash
+        run: |
+          echo "checks=${{ needs.checks.result }} docs=${{ needs.docs.result }}"
+          case "${{ needs.checks.result }}" in success) ;; *) echo "离线闸未通过：${{ needs.checks.result }}"; exit 1 ;; esac
+          case "${{ needs.docs.result }}" in success) ;; *) echo "文档闸未通过：${{ needs.docs.result }}"; exit 1 ;; esac
