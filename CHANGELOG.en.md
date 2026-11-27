@@ -2,6 +2,17 @@
 
 [中文](CHANGELOG.md) · English
 
+## Unreleased (2026-11-27) · The evidence gate gains a local fallback
+
+> Basis: voyage card github-mirror-skills-refit-p1 — structural-analogy survey and graceful-degradation refit (2026-11-27).
+
+- **Gap**: the evidence ledger requires every conclusion to trace back to a command and an exit code, and its full form relies on an external review channel. With no channel there were only two options: ship nothing, or write "reviewed" over "not reviewed" — the second is a false ledger.
+- **New `scripts/evidence_gate.py`**: probes the executable named by `DEDUCERE_REVIEW_CHANNEL`. Present → reports `external: true` and hands over to the channel. Absent → runs the three local gates only (residue, red-green, syntax smoke) and records "enhancement not enabled: missing external review channel".
+- **One set of truth**: the local gates emit only command, exit code and last summary line, and never produce a conclusion that only external review can reach.
+- **Three outcomes reported apart**: `pass` / `findings` / `incomplete` with exit codes 0 / 1 / 2 — "could not run" never impersonates "found something".
+- **Repository-root resolution**: `check_clean.py` wants a Git repository root and reports `[USAGE ERROR]` for a subdirectory. `resolve_repo()` walks up with `git rev-parse --show-toplevel`; when there is no root it records "could not run".
+- **What is lost**: whether the symptom is the one the user reported (locally only the command's redness is proven), whether the fix sits where the bad value was first produced (J18 needs a human on the causal chain), and whether an interval re-check holds (J24 needs time).
+
 ## Unreleased (2026-11-27) · Branch protection: add quality-gate aggregate
 
 - **Problem**: the repo had no branch protection at all; anyone, including the local pipeline, could push straight to main.
