@@ -244,6 +244,14 @@ class TestRedGreenGate(unittest.TestCase):
         self.assertEqual(res.returncode, 0, msg=res.stderr)
         self.assertIn("PASS-RED", res.stdout)
 
+    def test_28_mismatch_reports_actual_last_line(self):
+        """症状不匹配时必须把实际末行打出来（2026-11-28）：锁红的人先读它，⛔ 改 --match 迁就输出。"""
+        res = run_rg("red", PY_EXIT1_OTHER, match="TimeoutError")
+        self.assertEqual(res.returncode, 1)
+        self.assertIn("症状不匹配", res.stderr)
+        self.assertIn("OtherError: x", res.stderr)          # 实际失败行在输出里
+        self.assertIn("不改 --match", res.stderr)           # 下一步点明：回去修探针
+
 
 if __name__ == "__main__":
     unittest.main()

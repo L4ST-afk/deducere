@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""对鸟 Deducere · 红绿双态证伪硬闸（verify_red_green.py）。
+"""对鸟 Deducere · 雉闸——红绿双态证伪硬闸（verify_red_green.py）。
 
 ## 为什么有这个脚本
 
@@ -10,7 +10,9 @@
 ## 怎么判
 
 - `--expect red`：命令必须返回非 0；给了 `--match` 正则时，stdout 或 stderr
-  必须命中该症状正则，否则判「症状不匹配」；rc=0 判「假复现」。未给 `--match`
+  必须命中该症状正则，否则判「症状不匹配」，并**打印命令的实际末行**——锁红的人先读它，
+  再决定是探针撞了别的闸还是 `--match` 写成了邻近失败；⛔ 不改 `--match` 去迁就输出。
+  rc=0 判「假复现」。未给 `--match`
   时只确认非零退出，不核症状。`ImportError`／`NameError`／`AttributeError`／`SyntaxError`
   默认判「回路错误」而非症状红；错误类本身就是目标症状时，用 `--match` 精确命中该类可放行。
 - `--expect green`：同一条命令必须返回 0；非 0 判「回归未通过」。
@@ -103,8 +105,14 @@ def main() -> int:
             return 1
         if symptom_re:
             if not hit:
+                # 实际末行一并给出（2026-11-28）：只说「未命中」，锁红的人得原样重跑翻长输出。
+                # 当场三条红重锁三次，每次多花一个来回——读到的失败行其实早已在手里。
+                last = next((ln.strip() for ln in reversed((stdout + "\n" + stderr).splitlines())
+                             if ln.strip()), "")
                 print(f"[FAIL] 症状不匹配：命令虽失败（rc={proc.returncode}），"
-                      f"但输出未命中正则 /{args.match}/。", file=sys.stderr)
+                      f"但输出未命中正则 /{args.match}/。实际末行：「{last[:160]}」"
+                      "——先读它：多半是探针撞了别的闸，或 --match 写成了邻近失败（J2）；"
+                      "⛔ 不改 --match 去迁就输出，回去修探针。", file=sys.stderr)
                 return 1
             print(f"[PASS-RED] 故障已锁定（rc={proc.returncode}），症状证据有效。")
             return 0

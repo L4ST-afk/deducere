@@ -78,7 +78,7 @@ python3 scripts/check_clean.py --repo .
 │   ├── selftest.py             # Syntax-level offline smoke check
 │   └── human-loop.template.sh  # Structured human-in-the-loop template (authored in this skill)
 └── tests/
-│   └── test_deducere.py        # 27 business regression cases for both gates
+│   └── test_deducere.py        # 28 business regression cases for both gates
 ```
 
 ## Cover Motifs (Design Easter Eggs)

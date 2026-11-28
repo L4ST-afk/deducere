@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""对鸟 Deducere · 收尾洁癖硬闸（check_clean.py）。
+"""对鸟 Deducere · 鸽闸——收尾洁癖硬闸（check_clean.py）。
 
 ## 为什么有这个脚本
 
