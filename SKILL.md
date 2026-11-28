@@ -77,6 +77,7 @@ metadata:
 - 回路跑不进去、要人手动点，或开始凭感觉列原因；
 - 只列一条假设，或把用户的第一印象当结论；
 - 回归测试「通过」却说不出断言的是否就是用户症状；
+- 红锁不上就改 `--match` 去迁就实际输出，而不是回去修探针（凑红与凑绿同罪）；
 - 仓库里出现无前缀日志、临时原型残留；
 - 修在报错处挡症状，而不是坏数据第一次产生处；
 - 拿四问全绿宣布「已解决」，结果账却没有隔期数据（本件第一禁令）；
@@ -126,10 +127,12 @@ metadata:
 
 ## 七、硬闸（⛔ 不可绕）
 
-1. 辨征问出口未过 ⇒ ⛔ 进循链问。没有红灯就读码猜根因，是本件要防的第一失败。
-2. 验真问未拿到「同一命令先红后绿」⇒ ⛔ 宣布修好。先红后绿本身就是预登记：⛔ 中途改断言把测试凑绿。
-3. 净痕问机判有探针残留 ⇒ ⛔ 汇报。
-4. **结果账无隔期数据 ⇒ ⛔ 写「已解决／已修复完成」**，只能写「过程合规，结果待隔期复验」。这是四问三账相对六步骨架新增的闸。
+四条硬闸借《对鸟》歌中四鸟为名（2026-11-28 拍板，来历见 [references/naming.md](references/naming.md) §八）。鸟名只是关口的代号，⛔ 不是修复条款，也不改变「鸟＝谜底」的本义。
+
+1. **翠闸**（辨征出口）：辨征问出口未过 ⇒ ⛔ 进循链问。没有红灯就读码猜根因，是本件要防的第一失败。
+2. **雉闸**（红绿双态）：验真问未拿到「同一命令先红后绿」⇒ ⛔ 宣布修好。先红后绿本身就是预登记：⛔ 中途改断言把测试凑绿。
+3. **鸽闸**（净痕）：净痕问机判有探针残留 ⇒ ⛔ 汇报。
+4. **鸴闸**（隔期复验）：**结果账无隔期数据 ⇒ ⛔ 写「已解决／已修复完成」**，只能写「过程合规，结果待隔期复验」。这是四问三账相对六步骨架新增的闸。
 
 ## 八、横切闸（挂在问外，不重复进判据表）
 
@@ -181,7 +184,7 @@ python3 -m unittest discover -s tests -q   # 双硬闸业务回归，期望 OK�
 - [references/pending-thresholds.md](references/pending-thresholds.md)：已转正阈值与待校准项（P 池形态，未准入项⛔ 进正文硬判据）。
 - [references/naming.md](references/naming.md)：定名与拉丁名考据（只记名字由来，不定义功能）。
 - [references/visual-language.md](references/visual-language.md)：对外视觉造型、配色、构图与禁用项。
-- [scripts/verify_red_green.py](scripts/verify_red_green.py)：红绿双态证伪硬闸。
-- [scripts/check_clean.py](scripts/check_clean.py)：收尾探针残留硬闸。
+- [scripts/verify_red_green.py](scripts/verify_red_green.py)：雉闸——红绿双态证伪硬闸。
+- [scripts/check_clean.py](scripts/check_clean.py)：鸽闸——收尾探针残留硬闸。
 - [scripts/human-loop.template.sh](scripts/human-loop.template.sh)：必须人介入时的结构化 HITL 回路模板（本件自出）。
 - [tests/test_deducere.py](tests/test_deducere.py)：双硬闸业务回归用例。

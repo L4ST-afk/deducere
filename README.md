@@ -67,7 +67,6 @@ python3 scripts/check_clean.py --repo .
 ├── SKILL.md                  # 四问三账总纲、硬闸与横切闸（判据句不在本页）
 ├── references/
 │   ├── 判据表.md              # 30 条判据（问法／判违规／症状句／可选深读）
-│   ├── field-notes-7.md        # 七次实地排障手记（第一手资料与回改建议）
 │   ├── naming.md             # 定名、读音钉死、落选名与诚实缺口
 │   ├── feedback-loops.md     # 十种接缝、回路收紧、非确定 bug 与降级
 │   ├── hypothesis-methods.md # 兄弟件对照、边界二分、合议流程与降级
@@ -82,7 +81,7 @@ python3 scripts/check_clean.py --repo .
 │   ├── selftest.py           # 语法级离线冒烟自检
 │   └── human-loop.template.sh # 必须人介入时的结构化人工回路模板（本件自出）
 └── tests/
-│   └── test_deducere.py      # 27 组双硬闸业务回归用例
+│   └── test_deducere.py      # 28 组双硬闸业务回归用例
 ```
 
 ## 封面器物隐喻（设计彩蛋）

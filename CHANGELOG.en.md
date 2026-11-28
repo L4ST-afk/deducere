@@ -2,6 +2,31 @@
 
 [中文](CHANGELOG.md) · English
 
+## Unreleased (2026-11-28) · "鸴" traced: the simplified form of 鷽, the song's "long-tailed bird"
+
+> Basis: evidence supplied by the user on 2026-11-28, re-checked by this seat with two searches. Honesty gap #7 is withdrawn as "unverified" and re-recorded as "verified, with one link still open".
+
+- **Verified**: 鸴 is the simplified form of 鷽 (xué); Erya: "鷽, the mountain magpie", Guo Pu: "like a magpie but patterned, long-tailed, red bill and feet"; the song's "long-tailed bird" is the red-billed blue magpie, anciently called the mountain magpie / 鷽.
+- **One link still open**: the dictionaries record only the bird's appearance; "the red-billed blue magpie was anciently called 鷽" is matched by description, with no classical text found that names it directly, nor any Yueqing gazetteer.
+- **naming.md**: §8's 鸴闸 row now names the song bird; its image is inverted from the Shuowen "bird that knows what is to come" — the gate forbids predicting the outcome; §6 gains four sources.
+
+## Unreleased (2026-11-28) · The four hard gates take the song's birds as names: Kingfisher / Pheasant / Dove / Xu
+
+> Basis: user sign-off on 2026-11-28. Provenance and the honesty gap: `references/naming.md` §8.
+
+- **SKILL.md §7**: symptom exit gate = **翠闸 (Kingfisher)**, red/green gate = **雉闸 (Pheasant)**, clean-trace gate = **鸽闸 (Dove)**, delayed re-verification gate = **鸴闸 (Xu)**. The bird names are codenames for the gates, not fix clauses; "bird = the riddle's answer" is unchanged.
+- **Scripts**: the first docstring line of `verify_red_green.py` and `check_clean.py` carries the gate name; file names and output tokens (`PASS-RED` etc.) are untouched.
+- **naming.md**: new §8 mapping table; honesty gap #7 (the link between 「鸴」 and the song's 「长尾巴丁」, its meaning and reading, are unverified).
+
+## Unreleased (2026-11-28) · The red/green gate reads out the actual failure line for you
+
+> Basis: field debugging of a sibling criteria set's entry pipeline (2026-11-28; the three reds behind §2.399–2.403).
+
+- **Gap**: on "symptom mismatch" `verify_red_green.py` said only that the regex was not hit, not what actually failed; the person locking the red had to rerun raw and dig through long output. Three reds took three re-locks (probe tripped the duplicate-title guard / `--match` named a neighbouring failure / wrapper mapped red and green backwards) — the gate caught every one, but each cost an extra round trip.
+- **Red/green gate**: on mismatch it now also prints the command's **actual last line** and names the next step ("do not edit `--match` to fit the output; fix the probe"); new regression `test_28`.
+- **Feedback-loops volume**: adds "four rules for a self-built red" (read the failure line before locking / probe inputs must clear unrelated guards / wrapper mapping and stderr / what the red really is for a missing entry point) and "time each gate before batching" (batches that exceed the foreground wait get stopped mid-way and leave a half-written tree).
+- **Corruption signals**: adds "re-locking fails, so edit `--match` to fit the output".
+
 ## Unreleased (2026-11-27) · The evidence gate gains a local fallback
 
 > Basis: voyage card github-mirror-skills-refit-p1 — structural-analogy survey and graceful-degradation refit (2026-11-27).
